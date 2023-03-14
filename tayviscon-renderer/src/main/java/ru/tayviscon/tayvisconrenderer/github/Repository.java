@@ -14,7 +14,7 @@ public class Repository {
     private String fullName;
     private String description;
     private String htmlUrl;
-    private String getUrl;
+    private String gitUrl;
     private String sshUrl;
     private String cloneUrl;
     private List<String> topics;
@@ -25,7 +25,7 @@ public class Repository {
                       @JsonProperty("full_name")String fullName,
                       @JsonProperty("description")String description,
                       @JsonProperty("html_url")String htmlUrl,
-                      @JsonProperty("git_url")String getUrl,
+                      @JsonProperty("git_url")String gitUrl,
                       @JsonProperty("ssh_url")String sshUrl,
                       @JsonProperty("clone_url")String cloneUrl,
                       @JsonProperty("topics")List<String> topics) {
@@ -34,7 +34,7 @@ public class Repository {
         this.fullName = fullName;
         this.description = description;
         this.htmlUrl = htmlUrl;
-        this.getUrl = getUrl;
+        this.gitUrl = gitUrl;
         this.sshUrl = sshUrl;
         this.cloneUrl = cloneUrl;
         this.topics = topics;
