@@ -1,6 +1,8 @@
 package ru.tayviscon.tayvisconrenderer.guides;
 
 import lombok.Getter;
+import org.springframework.hateoas.RepresentationModel;
+import org.springframework.hateoas.server.core.Relation;
 import ru.tayviscon.tayvisconrenderer.github.Repository;
 
 /**
@@ -11,7 +13,8 @@ import ru.tayviscon.tayvisconrenderer.github.Repository;
  * @see ru.tayviscon.tayvisconrenderer.RendererProperties
  */
 @Getter
-public class GuideModel {
+@Relation(collectionRelation = "guides")
+public class GuideModel extends RepresentationModel<GuideModel> {
 
     private String name;
     private String repositoryName;
