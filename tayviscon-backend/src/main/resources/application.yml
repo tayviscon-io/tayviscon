@@ -1,0 +1,4 @@
+tayviscon:
+  site:
+    renderer:
+      service-url: http://localhost:8081
