@@ -47,4 +47,11 @@ public class TayvisconRendererClient {
                 .follow(Hop.rel("getting-started").withParameter("guide", name))
                 .toObject(GuideMetadata.class);
     }
+
+    public GuideContent getGettingStartedGuideContent(String name) {
+        return this.traverson.follow("guides")
+                .follow(Hop.rel("getting-started").withParameter("guide", name))
+                .follow("content")
+                .toObject(GuideContent.class);
+    }
 }
