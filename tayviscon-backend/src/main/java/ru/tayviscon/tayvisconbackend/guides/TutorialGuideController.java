@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Arrays;
 
 @Controller
-@RequestMapping("/guides/tutorial")
+@RequestMapping("/guides/tutorials")
 public class TutorialGuideController {
 
     private final TutorialGuidesRepository guidesRepository;
