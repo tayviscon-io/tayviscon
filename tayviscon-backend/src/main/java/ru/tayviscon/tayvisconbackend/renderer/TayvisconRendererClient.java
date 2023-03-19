@@ -54,4 +54,23 @@ public class TayvisconRendererClient {
                 .follow("content")
                 .toObject(GuideContent.class);
     }
+
+    public GuideMetadata[]  getTutorialGuides() {
+        return Arrays.stream(getAllGuides())
+                .filter(guide  -> GuideType.TUTORIAL.equals(guide.getType()))
+                .toArray(GuideMetadata[]::new);
+    }
+
+    public GuideMetadata getTutorialGuide(String name) {
+        return traverson.follow("guides")
+                .follow(Hop.rel("tutorial").withParameter("guide", name))
+                .toObject(GuideMetadata.class);
+    }
+
+    public GuideContent getTutorialGuideContent(String name) {
+        return traverson.follow("guides")
+                .follow(Hop.rel("tutorial").withParameter("guide", name))
+                .follow("content")
+                .toObject(GuideContent.class);
+    }
 }
