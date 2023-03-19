@@ -1,12 +1,18 @@
 package ru.tayviscon.tayvisconbackend.renderer;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class GuideContent {
 
     private String repositoryName;
     private String tableOfContent;
     private String content;
 
-    public GuideContent(String repositoryName, String tableOfContent, String content) {
+    @JsonCreator
+    public GuideContent(@JsonProperty("repositoryName") String repositoryName,
+                        @JsonProperty("tableOfContent") String tableOfContent,
+                        @JsonProperty("content") String content) {
         this.repositoryName = repositoryName;
         this.tableOfContent = tableOfContent;
         this.content = content;
