@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" data-th-replace="layout :: layout (~{::head/content()}, 'guides', ~{::div})">
 <head>
     <meta charset="UTF-8">
     <title>Tayviscon | Руководства</title>
 </head>
 <body>
+<div>
     <div>
         <h2>Getting Started Guides</h2>
         <div data-th-each="guide : ${gsGuides}">
@@ -26,5 +27,6 @@
             <p data-th-text="${guide.description}"></p>
         </div>
     </div>
+</div>
 </body>
 </html>

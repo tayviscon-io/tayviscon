@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html data-th-fragment="layout (heads, bodyId, content)"  lang="en">
+<head>
+    <meta charset="UTF-8">
+    <data-th-block  data-th-replace="${heads}"></data-th-block>
+</head>
+<body data-th-id="${bodyId}">
+<header>
+    <nav id="nav">
+        <div>
+            <ul>
+                <li><div id="why-hov">Почему Tayviscon</div></li>
+                <li><div id="edu-hov">Образование</div></li>
+                <li><div id="projects-hov">Проекты</div></li>
+                <li><a href="/academy">Академия</a></li>
+                <li><a href="/support">Поддержка</a></li>
+                <li><div id="community-hov">Комьюнити</div></li>
+            </ul>
+        </div>
+        <div id="dropdown-menus">
+            <div id="why-items">
+                <div id="why-target"></div>
+                <ul>
+                    <li><a href="/why-tayviscon">Обзор</a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="edu-items">
+            <div id="edu-target"></div>
+            <ul>
+                <li><a href="/education">Обзор</a></li>
+                <li><a href=""></a></li>
+                <li><a href="/guides">Руководства</a></li>
+                <li><a href=""></a></li>
+            </ul>
+        </div>
+        <div id="community-items">
+            <div id="community-target"></div>
+            <li><a href="/community">Обзор</a></li>
+            <li><a href="/events">Мероприятия</a></li>
+            <li><a href="/team">Команда</a></li>
+        </div>
+    </nav>
+</header>
+<div id="main" data-th-replace="${content}">
+    <p>Content</p>
+</div></div>
+<footer>
+
+</footer>
+</body>
+</html>
