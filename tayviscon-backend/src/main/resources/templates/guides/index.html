@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Tayviscon | Руководства</title>
+</head>
+<body>
+    <div>
+        <h2>Getting Started Guides</h2>
+        <div data-th-each="guide : ${gsGuides}">
+            <a data-th-href="@{'/guides/gs/'+${guide.name}}" data-th-text="${guide.title}"></a>
+            <p data-th-text="${guide.description}"></p>
+        </div>
+    </div>
+    <div>
+        <h2>Topical Guides</h2>
+        <div data-th-each="guide : ${topicalGuides}">
+            <a data-th-href="@{'/guides/topicals/'+${guide.name}}" data-th-text="${guide.title}"></a>
+            <p data-th-text="${guide.description}"></p>
+        </div>
+    </div>
+    <div>
+        <h2>Tutorial Guides</h2>
+        <div data-th-each="guide : ${tutorialGuides}">
+            <a data-th-href="@{'/guides/tutorials/'+${guide.name}}" data-th-text="${guide.title}"></a>
+            <p data-th-text="${guide.description}"></p>
+        </div>
+    </div>
+</body>
+</html>
