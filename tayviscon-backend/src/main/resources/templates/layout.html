@@ -1,25 +1,53 @@
 <!DOCTYPE html>
-<html data-th-fragment="layout (heads, bodyId, content)"  lang="en">
+<html data-th-fragment="layout (heads, bodyId, content)" lang="en">
 <head>
     <meta charset="UTF-8">
-    <data-th-block  data-th-replace="${heads}"></data-th-block>
+    <link rel="stylesheet" type="text/css" media="all" data-th-href="@{/css/main.css}"/>
+    <data-th-block data-th-replace="${heads}"></data-th-block>
 </head>
 <body data-th-id="${bodyId}">
 <header>
     <nav id="nav">
-        <div>
-            <ul>
-                <li><div id="why-hov">Почему Tayviscon</div></li>
-                <li><div id="edu-hov">Образование</div></li>
-                <li><div id="projects-hov">Проекты</div></li>
-                <li><a href="/academy">Академия</a></li>
-                <li><a href="/support">Поддержка</a></li>
-                <li><div id="community-hov">Комьюнити</div></li>
+        <div id="nav-inner" class="container flex jc-between ai-center">
+            <a id='logo-focus' tabindex='1' href='/'>
+                <img id='tayvisconlogo' class='block' data-th-src="@{/images/tayviscon-logo-2023.svg}" alt="Tayviscon">
+<!--                <img id='springlogo-dark' class='block' data-th-src="@{/images/spring-logo-2022-dark.svg}" alt="Spring">-->
+            </a>
+            <ul id="nav-items" class="flex jc-between">
+                <li>
+                    <div class="has-menu" id="why-hov"><span>Tayviscon</span>
+                        <div class="nav-arrow"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="has-menu" id="edu-hov"><span>Образование</span>
+                        <div class="nav-arrow"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="has-menu" id="projects-hov"><span>Проекты</span>
+                        <div class="nav-arrow"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="has-menu" id="academy-hov"><span>Академия</span>
+                        <div class="nav-arrow"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="has-menu" id="support-hov"><span>Поддержка</span>
+                        <div class="nav-arrow"></div>
+                    </div>
+                </li>
+                <li><a class="has-menu" id="community-hov"><span>Комьюнити</span>
+                    <div class="nav-arrow"></div>
+                </a></li>
             </ul>
         </div>
-        <div id="dropdown-menus">
-            <div id="why-items">
-                <div id="why-target"></div>
+        <div id="dropdown-menus" class="container rel">
+            <div id="scope" class="abs rad-5"></div>
+            <div id="why-items" class="drop-menu">
+                <div id="why-target" class="drop-target"></div>
                 <ul>
                     <li><a href="/why-tayviscon">Обзор</a></li>
                     <li><a href=""></a></li>
@@ -28,29 +56,61 @@
                     <li><a href=""></a></li>
                 </ul>
             </div>
-        </div>
-        <div id="edu-items">
-            <div id="edu-target"></div>
-            <ul>
-                <li><a href="/education">Обзор</a></li>
-                <li><a href=""></a></li>
-                <li><a href="/guides">Руководства</a></li>
-                <li><a href=""></a></li>
-            </ul>
-        </div>
-        <div id="community-items">
-            <div id="community-target"></div>
-            <li><a href="/community">Обзор</a></li>
-            <li><a href="/events">Мероприятия</a></li>
-            <li><a href="/team">Команда</a></li>
+
+            <div id="edu-items" class="drop-menu">
+                <div id="edu-target" class="drop-target"></div>
+                <ul>
+                    <li><a href="/education">Обзор</a></li>
+                    <li><a href="">Образоввание</a></li>
+                    <li><a href="/guides">Руководства</a></li>
+                    <li><a href="">Образоввание</a></li>
+                </ul>
+            </div>
+
+            <div id="project-items" class="drop-menu">
+                <div id="project-target" class="drop-target"></div>
+                <ul>
+                    <li><a href="/education">Обзор</a></li>
+                    <li><a href=""></a></li>
+                    <li><a href="/guides">Руководства</a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+
+            <div id="academy-items" class="drop-menu">
+                <div id="academy-target" class="drop-target"></div>
+                <ul>
+                    <li><a href="/community">Обзор</a></li>
+                    <li><a href="/events">Мероприятия</a></li>
+                </ul>
+            </div>
+
+            <div id="support-items" class="drop-menu">
+                <div id="support-target" class="drop-target"></div>
+                <ul>
+                    <li><a href="/community">Под</a></li>
+                    <li><a href="/events">Под</a></li>
+                </ul>
+            </div>
+
+            <div id="community-items" class="drop-menu">
+                <div id="community-target" class="drop-target"></div>
+                <ul>
+                    <li><a href="/community">Обзор</a></li>
+                    <li><a href="/events">Мероприятия</a></li>
+                    <li><a href="/team">Команда</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 </header>
 <div id="main" data-th-replace="${content}">
     <p>Content</p>
-</div></div>
+</div>
+</div>
 <footer>
 
 </footer>
+<script data-th-src="@{/js/main.js}"></script>
 </body>
 </html>

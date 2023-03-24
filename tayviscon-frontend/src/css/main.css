@@ -1,0 +1,282 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat/Montserrat-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+html {
+    font-size: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html, h1, h2, h3, h4, h5, p strong {
+    color: #191E1E;
+}
+
+p {
+    color: #333333;
+}
+
+body {
+    margin: 0;
+}
+
+#tayvisconlogo,
+#tayvisconlogo-foot,
+#tayvisconlogo-dark,
+#tayvisconlogo-foot-dark {
+    height: 48px;
+    max-width: 300px;
+}
+
+#nav {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    position: relative;
+    z-index: 4;
+    align-items: center;
+    background: white;
+    border-bottom: 1px solid #ebf2f2;
+}
+.has-menu span:focus,
+#nav-items a:focus {
+    outline: none !important;
+    color: #369643;
+}
+#nav-items {
+    list-style-type: none;
+    padding: 0;
+    width: 705px;
+    align-items: center;
+}
+#nav-items li {
+    margin-bottom: 3px;
+}
+#nav li {
+    position: relative;
+    font-weight: 500;
+    color: #191E1E;
+}
+.drop-menu li a {
+    transition: color .2s;
+}
+.drop-menu li a:hover,
+.drop-menu li a:focus {
+    color: #369643;
+    outline: none;
+}
+
+#nav-items > li > div,
+#nav-items > li > a {
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: color .2s;
+    font-size: .9375rem;
+}
+#nav-items > li > div:hover,
+#nav-items > li > a:hover {
+    color: #369643;
+}
+.has-menu:hover .drop-menu,
+.has-menu:focus .drop-menu {
+    display: block;
+}
+.drop-menu {
+    position: absolute;
+    white-space: nowrap;
+    transition: all 0s linear;
+    top: -67px;
+    margin: 0;
+    opacity: 0;
+}
+.drop-menu ul {
+    box-sizing: border-box;
+    width: 230px;
+    margin: 0;
+}
+.drop-menu li {
+    display: none;
+}
+.drop-target {
+    display: block;
+    height: 67px;
+    padding-bottom: 8px;
+}
+
+
+.container {
+    max-width: 1140px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+
+.drop-menu.active {
+    opacity: 1;
+    transition: all .3s ease-in;
+}
+.drop-menu.active ul {
+    padding: 37px 30px;
+    height: auto;
+}
+.drop-menu.active li {
+    display: block;
+    margin-bottom: 10px;
+    transition: opacity 0s;
+}
+.drop-menu li:last-child {
+    margin-bottom: 0px;
+}
+
+.drop-menu li a:hover .external-link-icon polyline,
+.drop-menu li a:hover .external-link-icon line,
+footer .footer-column a:hover .external-link-icon polyline,
+footer .footer-column a:hover .external-link-icon line,
+.drop-menu li a:focus .external-link-icon polyline,
+.drop-menu li a:focus .external-link-icon line,
+footer .footer-column a:focus .external-link-icon polyline,
+footer .footer-column a:focus .external-link-icon line {
+    stroke: #369643 !important;
+}
+.nav-arrow {
+    transform: rotate(45deg) translateY(-6px);
+    -webkit-transform: rotate(45deg) translateY(-6px);
+    border: solid #191E1E;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-left: 5px;
+}
+
+#why-target {
+    width: 110px;
+    transform: translateX(-10px);
+}
+#edu-target {
+    width: 150px;
+    transform: translateX(-22px);
+}
+#project-target {
+    width: 100px;
+    transform: translateX(-16px);
+}
+
+#academy-target{
+    width: 110px;
+    transform: translateX(-10px);
+}
+#support-target{
+    width: 120px;
+    transform: translateX(-10px);
+}
+
+#community-target {
+    width: 130px;
+    transform: translateX(15px);
+}
+
+#why-items{
+    right: 495px;
+}
+#edu-items {
+    right: 375px;
+}
+#project-items {
+    right: 240px;
+}
+#academy-items {
+    right: 135px;
+}
+#support-items {
+    right: 20px;
+}
+#community-items {
+    right: -90px;
+}
+.has-menu.active {
+    color: #369643;
+}
+
+#scope {
+    background: white;
+    transition: all .2s ease-out;
+    width: 230px;
+    box-shadow: 0px 5px 30px 0px rgba( 108, 135, 135, 0.5);
+    top: 8px;
+    opacity: 0;
+}
+#scope.why-scope {
+    right: 495px;
+    height: 324px;
+    opacity: 1;
+    transition: all .2s ease-out;
+}
+#scope.edu-scope {
+    right: 375px;
+    height: 190px;
+    opacity: 1;
+}
+#scope.projects-scope {
+    right: 240px;
+    height: 510px;
+    opacity: 1;
+}
+#scope.academy-scope {
+    right: 135px;
+    height: 131px;
+    opacity: 1;
+}
+#scope.support-scope {
+    right: 20px;
+    height: 131px;
+    opacity: 1;
+}
+#scope.community-scope {
+    right: -90px;
+    height: 156px;
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+.flex {
+    display: flex;
+}
+
+.jc-between {
+    justify-content: space-between;
+}
+
+.ai-center {
+    align-items: center;
+}
+.rel {
+    position: relative;
+}
+.abs {
+    position: absolute;
+}
+.rad-5 {
+    border-radius: 5px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    transition: all .2s;
+}
+a:hover {
+    cursor: pointer;
+}
+
+
+
