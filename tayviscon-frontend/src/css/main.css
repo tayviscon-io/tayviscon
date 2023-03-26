@@ -1489,6 +1489,7 @@ body#quickstart header {
       animation: fadeIn .4s ease-out forwards;*/
 }
 body#index #wordWrapper {
+    color: #369643;
     overflow: hidden;
     height: 63px;
     line-height: 1.05em;
