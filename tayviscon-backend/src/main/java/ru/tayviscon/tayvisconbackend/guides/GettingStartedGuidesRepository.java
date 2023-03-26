@@ -14,8 +14,8 @@ import java.util.Optional;
 public class GettingStartedGuidesRepository implements GuidesRepository<GettingStartedGuide> {
 
     private final TayvisconRendererClient tayvisconRendererClient;
-    private static final String  CACHE_GUIDES = "cache.guides";
-    private static final  String CACHE_GUIDE = "cache.guide";
+    public static final String  CACHE_GUIDES = "cache.guides";
+    public static final  String CACHE_GUIDE = "cache.guide";
 
     public GettingStartedGuidesRepository(TayvisconRendererClient tayvisconRendererClient) {
         this.tayvisconRendererClient = tayvisconRendererClient;
