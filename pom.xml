@@ -30,7 +30,7 @@
         <dependencies>
             <dependency>
                 <groupId>ru.tayviscon</groupId>
-                <artifactId>tayviscon-renderer</artifactId>
+                <artifactId>tayviscon-frontend</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
