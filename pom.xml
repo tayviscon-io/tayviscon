@@ -33,7 +33,27 @@
                 <artifactId>tayviscon-renderer</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>ru.tayviscon</groupId>
+                <artifactId>tayviscon-frontend</artifactId>
+                <version>${revision}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.github.eirslett</groupId>
+                    <artifactId>frontend-maven-plugin</artifactId>
+                    <version>1.12.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.3.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

@@ -31,3 +31,13 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Tayviscon Frontend ###
+/tayviscon-frontend/public/
+/tayviscon-frontend/node_modules/
+/tayviscon-frontend/node/
+/tayviscon-frontend/.env
+/tayviscon-frontend/.cache/
+/tayviscon-frontend/package-lock.json
+/tayviscon-frontend/yarn-error.log
+/tayviscon-frontend/analysis
