@@ -1,6 +1,8 @@
 package ru.tayviscon.tayvisconbackend.guides;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 import ru.tayviscon.tayvisconbackend.renderer.GuideContent;
 import ru.tayviscon.tayvisconbackend.renderer.TayvisconRendererClient;
@@ -12,12 +14,15 @@ import java.util.Optional;
 public class TutorialGuidesRepository implements GuidesRepository<TutorialGuide>{
 
     private final TayvisconRendererClient rendererClient;
+    public static final String CACHE_TUTORIALS = "cache.tutorials";
+    public static final String CACHE_TUTORIAL = "cache.tutorial";
 
     public TutorialGuidesRepository(TayvisconRendererClient rendererClient) {
         this.rendererClient = rendererClient;
     }
 
     @Override
+    @Cacheable(CACHE_TUTORIALS)
     public GuideHeader[] findAll() {
         return Arrays.stream(rendererClient.getTutorialGuides())
                 .map(DefaultGuideHeader::new)
@@ -31,6 +36,7 @@ public class TutorialGuidesRepository implements GuidesRepository<TutorialGuide>
     }
 
     @Override
+    @Cacheable(CACHE_TUTORIAL)
     public TutorialGuide findByName(String name) {
         try {
             DefaultGuideHeader guideHeader = new DefaultGuideHeader(rendererClient.getTutorialGuide(name));
@@ -41,5 +47,14 @@ public class TutorialGuidesRepository implements GuidesRepository<TutorialGuide>
             log.error("Не удалось отрисовать руководство [" + name + "]");
             throw exception;
         }
+    }
+
+    @CacheEvict(CACHE_TUTORIALS)
+    public void evictListFromCache() {
+        log.info("Руководства были удалены из кеша");
+    }
+    @CacheEvict(CACHE_TUTORIAL)
+    public void evictFromCache(String  guide)  {
+        log.info("Руководство было удалено из кеша: {}", guide);
     }
 }
