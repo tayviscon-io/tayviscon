@@ -10,6 +10,7 @@ module.exports = {
     entry: {
         main: './src/app/main.js',
         guide: './src/app/guide.js',
+        run_prettify: './src/app/run_prettify.js',
     },
 
     output: {
