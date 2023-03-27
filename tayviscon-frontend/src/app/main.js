@@ -5,7 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import ClipboardJS from 'clipboard';
 import {get, set} from 'local-storage';
 import '../css/main.css'
-// import '../css/dark.scss'
+import '../css/dark.scss'
 
 $(document).ready(function () {
 
