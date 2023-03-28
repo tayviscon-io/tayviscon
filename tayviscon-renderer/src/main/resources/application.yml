@@ -4,4 +4,10 @@ server:
 tayviscon:
   renderer:
     guides:
-      organization: tayviscon-guides
+      organization: spring-guides
+    github:
+#      Это необязательное свойство, которое может быть назначено
+#      при помощи созданного "личного токена доступа" на сайте Github.
+#      Это сделано для того, чтобы работать с более высокой частотой запросов
+#      (5000 вместо 60 запросов в час)
+      token:

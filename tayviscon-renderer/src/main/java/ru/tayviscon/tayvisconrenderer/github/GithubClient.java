@@ -2,6 +2,7 @@ package ru.tayviscon.tayvisconrenderer.github;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import ru.tayviscon.tayvisconrenderer.RendererProperties;
@@ -26,6 +28,7 @@ public class GithubClient {
     public static final String API_URI_BASE = "https://api.github.com";
     private static final Pattern NEXT_LINK_PATTERN = Pattern.compile(".*<([^>]*)>;\\s*rel=\"next\".*");
     private static final MediaType GITHUB_PREVIEW_TYPE = MediaType.parseMediaType("application/vnd.github.mercy-preview+json");
+    private static final String RATE_LIMIT_PATH = "/rate_limit";
     private static final String REPOS_LIST_PATH = "/orgs/%s/repos?per_page=100";
     private static final String REPO_INFO_PATH = "/repos/{organization}/{repositoryName}";
     private static final String REPO_ZIPBALL_PATH = REPO_INFO_PATH + "/zipball";
@@ -37,8 +40,15 @@ public class GithubClient {
         restTemplateBuilder = restTemplateBuilder
                 .rootUri(API_URI_BASE)
                 .additionalInterceptors(new GithubAcceptInterceptor());
+        if (StringUtils.hasText(rendererProperties.getGithub().getToken())) {
+            this.restTemplate = restTemplateBuilder
+                    .additionalInterceptors(new GithubAppTokenInterceptor(rendererProperties.getGithub().getToken()))
+                    .build();
+        } else {
+            log.warn("Доступ к Github API будет ограничен по скорости: 60 запросов в час");
+            this.restTemplate = restTemplateBuilder.build();
+        }
 
-        this.restTemplate = restTemplateBuilder.build();
     }
 
     /**
@@ -94,7 +104,7 @@ public class GithubClient {
 
     private Optional<String> findNextPageLink(ResponseEntity response) {
         List<String> links = response.getHeaders().get("Link");
-        if(links == null) {
+        if (links == null) {
             return Optional.empty();
         }
         return links.stream()
@@ -104,6 +114,26 @@ public class GithubClient {
                 .findFirst();
     }
 
+    public RateLimit getRateLimitInfo() {
+        return this.restTemplate.getForObject(RATE_LIMIT_PATH, RateLimit.class);
+    }
+
+    private static class GithubAppTokenInterceptor implements ClientHttpRequestInterceptor {
+        private final String token;
+
+        public GithubAppTokenInterceptor(String token) {
+            this.token = token;
+        }
+
+        @Override
+        public ClientHttpResponse intercept(HttpRequest request, byte[] body,
+                                            ClientHttpRequestExecution execution) throws IOException {
+            if (StringUtils.hasText(this.token)) {
+                request.getHeaders().set(HttpHeaders.AUTHORIZATION, "Token " + this.token);
+            }
+            return execution.execute(request, body);
+        }
+    }
 
     private static class GithubAcceptInterceptor implements ClientHttpRequestInterceptor {
         @Override
