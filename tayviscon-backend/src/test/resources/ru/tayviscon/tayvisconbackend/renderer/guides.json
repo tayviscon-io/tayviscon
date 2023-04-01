@@ -1,0 +1,116 @@
+{
+  "_embedded": {
+    "guides": [
+      {
+        "name": "tayviscon-guide-1",
+        "title": "Tayviscon Guide 1 Title",
+        "description": "Tayviscon  Guide 1 Description",
+        "type": "getting-started",
+        "githubUrl": "https://github.com/tayviscon-guides/gs-tayviscon-guide-1",
+        "gitUrl": "git://github.com/tayviscon-guides/gs-tayviscon-guide-1.git",
+        "sshUrl": "git@github.com:tayviscon-guides/gs-tayviscon-guide-1.git",
+        "cloneUrl": "https://github.com/tayviscon-guides/gs-tayviscon-guide-1.git",
+        "projects": [
+          "tayviscon"
+        ],
+        "_links": {
+          "self": {
+            "href": "/guides/getting-started/tayviscon-guide-1"
+          },
+          "content": {
+            "href": "/guides/getting-started/tayviscon-guide-1/content"
+          },
+          "guides": {
+            "href": "/guides/"
+          }
+        }
+      },
+      {
+        "name": "tayviscon-guide-2",
+        "title": "Tayviscon Guide 2 Title",
+        "description": "Tayviscon Guide 2 Description",
+        "type": "getting-started",
+        "githubUrl": "https://github.com/tayviscon-guides/gs-tayviscon-guide-2",
+        "gitUrl": "git://github.com/tayviscon-guides/gs-tayviscon-guide-2.git",
+        "sshUrl": "git@github.com:tayviscon-guides/gs-tayviscon-guide-2.git",
+        "cloneUrl": "https://github.com/tayviscon-guides/gs-tayviscon-guide-2.git",
+        "projects": [
+
+        ],
+        "_links": {
+          "self": {
+            "href": "/guides/getting-started/tayviscon-guide-2"
+          },
+          "content": {
+            "href": "/guides/getting-started/tayviscon-guide-2/content"
+          },
+          "guides": {
+            "href": "/guides/"
+          }
+        }
+      },
+      {
+        "name": "tayviscon-topical-guide",
+        "title": "Tayviscon Topical Guide Title",
+        "description": "Tayviscon Topical Guide Description",
+        "type": "topical",
+        "githubUrl": "https://github.com/tayviscon-guides/tayviscon-topical-guide",
+        "gitUrl": "git://github.com/tayviscon-guides/tayviscon-topical-guide.git",
+        "sshUrl": "git@github.com:tayviscon-guides/tayviscon-topical-guide.git",
+        "cloneUrl": "https://github.com/tayviscon-guides/tayviscon-topical-guide.git",
+        "projects": [
+
+        ],
+        "_links": {
+          "self": {
+            "href": "/guides/topical/tayviscon-topical-guide"
+          },
+          "content": {
+            "href": "/guides/topical/tayviscon-topical-guide/content"
+          },
+          "guides": {
+            "href": "/guides/"
+          }
+        }
+      },
+      {
+        "name": "tayviscon-tutorial-guide",
+        "title": "Tayviscon Tutorial Guide Title",
+        "description": "Tayviscon Tutorial Guide Description",
+        "type": "tutorial",
+        "githubUrl": "https://github.com/tayviscon-guides/tayviscon-tutorial-guide",
+        "gitUrl": "git://github.com/tayviscon-guides/tayviscon-tutorial-guide.git",
+        "sshUrl": "git@github.com:tayviscon-guides/tayviscon-tutorial-guide.git",
+        "cloneUrl": "https://github.com/tayviscon-guides/tayviscon-tutorial-guide.git",
+        "projects": [
+
+        ],
+        "_links": {
+          "self": {
+            "href": "/guides/tutorial/tayviscon-tutorial-guide"
+          },
+          "content": {
+            "href": "/guides/tutorial/tayviscon-tutorial-guide/content"
+          },
+          "guides": {
+            "href": "/guides/"
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "getting-started": {
+      "href": "/guides/getting-started/{guide}",
+      "templated": true
+    },
+    "tutorial": {
+      "href": "/guides/tutorial/{guide}",
+      "templated": true
+    },
+    "topical": {
+      "href": "/guides/topical/{guide}",
+      "templated": true
+    }
+  }
+}
