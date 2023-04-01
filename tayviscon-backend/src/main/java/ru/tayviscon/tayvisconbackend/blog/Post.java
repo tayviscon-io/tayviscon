@@ -1,29 +1,48 @@
 package ru.tayviscon.tayvisconbackend.blog;
 
+import jakarta.persistence.*;
 import org.springframework.util.StringUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public class Post {
 
     private final static SimpleDateFormat SLUG_DATE_FORMAT = new SimpleDateFormat("yyyy/MM/dd");
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String title;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private PostCategory category;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private PostFormat format;
+    @Column(nullable = false)
     private String rawContent;
+    @Column(nullable = false)
     private String renderedContent;
+    @Column(nullable = false)
     private Date createdAt = new Date();
+    @Column(nullable = false)
     private boolean draft = true;
+    @Column(nullable = false)
     private boolean broadcast = false;
+    @Column(nullable = true)
     private Date publishAt;
+    @Column(nullable = true)
     private String publicSlug;
+    @ElementCollection
     private Set<String> publishSlugAliases = new HashSet<>();
+
+    public Post() {
+    }
 
     public Post(String title, String content, PostCategory category, PostFormat format) {
         this.title = title;
