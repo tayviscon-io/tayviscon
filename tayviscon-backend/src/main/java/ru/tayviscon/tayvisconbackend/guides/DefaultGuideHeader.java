@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class DefaultGuideHeader implements GuideHeader{
-    private static final String REPO_ZIP_URL = "https://github.com/$s/archive/master.zip";
+    private static final String REPO_ZIP_URL = "https://github.com/%s/archive/master.zip";
 
     private String name;
     private String repositoryName;
