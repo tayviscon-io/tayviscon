@@ -39,7 +39,7 @@ public class Post {
     @Column(nullable = true)
     private String publicSlug;
     @ElementCollection
-    private Set<String> publishSlugAliases = new HashSet<>();
+    private Set<String> publicSlugAliases = new HashSet<>();
 
     public Post() {
     }
@@ -133,7 +133,7 @@ public class Post {
 
     public void addPublicSlug(String alias) {
         if(alias !=null) {
-            this.publishSlugAliases.add(alias);
+            this.publicSlugAliases.add(alias);
         }
     }
 
