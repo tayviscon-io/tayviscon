@@ -29,6 +29,8 @@ public class Post {
     @Column(nullable = false)
     private String renderedContent;
     @Column(nullable = false)
+    private String renderedSummary;
+    @Column(nullable = false)
     private Date createdAt = new Date();
     @Column(nullable = false)
     private boolean draft = true;
@@ -93,6 +95,14 @@ public class Post {
 
     public void setRenderedContent(String renderedContent) {
         this.renderedContent = renderedContent;
+    }
+
+    public String getRenderedSummary() {
+        return renderedSummary;
+    }
+
+    public void setRenderedSummary(String renderedSummary) {
+        this.renderedSummary = renderedSummary;
     }
 
     public Date getCreatedAt() {
