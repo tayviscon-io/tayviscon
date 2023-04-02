@@ -3,9 +3,12 @@ package ru.tayviscon.tayvisconbackend.renderer;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.Link;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.client.Hop;
 import org.springframework.hateoas.client.Traverson;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -13,6 +16,7 @@ import ru.tayviscon.tayvisconbackend.SiteProperties;
 
 import java.net.URI;
 import java.util.Arrays;
+import java.util.Collections;
 
 @Component
 public class TayvisconRendererClient {
@@ -92,4 +96,21 @@ public class TayvisconRendererClient {
                 .follow("content")
                 .toObject(GuideContent.class);
     }
+
+    public String renderMarkdown(String markup) {
+        return renderMarkup(markup, MediaType.TEXT_MARKDOWN);
+    }
+    public String renderAsciidoc(String markup) {
+        return renderMarkup(markup, TEXT_ASCIIDOC);
+    }
+
+    private String renderMarkup(String markup, MediaType contentType) {
+        Link renderLink = this.traverson.follow("markup").asLink();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(Collections.singletonList(MediaType.TEXT_HTML));
+        headers.setContentType(contentType);
+        HttpEntity<String> request = new HttpEntity<>(markup, headers);
+        return this.restTemplate.postForObject(renderLink.getHref(), request, String.class);
+    }
+
 }
