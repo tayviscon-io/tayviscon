@@ -20,7 +20,7 @@ public enum PostFormat {
     public String getSlug() {
         return slug;
     }
-    private String getId() {
+    public String getId() {
         return name();
     }
     @Override
