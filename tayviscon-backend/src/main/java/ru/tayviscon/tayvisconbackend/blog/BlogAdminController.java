@@ -23,7 +23,7 @@ public class BlogAdminController {
     public String newPost(Model model) {
         model.addAttribute("postForm", new PostForm());
         model.addAttribute("categories", PostCategory.values());
-        model.addAttribute("format", PostFormat.values());
+        model.addAttribute("formats", PostFormat.values());
         return "admin/blog/new";
     }
 
