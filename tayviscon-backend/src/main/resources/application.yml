@@ -1,4 +1,7 @@
 tayviscon:
   site:
+    github:
+      organization: tayviscon-io
+      team: tayviscon-team
     renderer:
       service-url: http://localhost:8081
