@@ -12,6 +12,9 @@ module.exports = {
         guide: './src/app/guide.js',
         run_prettify: './src/app/run_prettify.js',
         theme: './src/app/theme.js',
+        team: './src/app/team.js',
+        admin: './src/app/admin.js',
+        profile: './src/app/profile.js',
     },
 
     output: {
